@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Request Headers</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Header</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var header in this.HttpContext.Request.Headers)
+            {
+                <tr>
+                    <td>@header.Key</td>
+                    <td>@header.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h1 class="display-4">Response Headers</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Header</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var header in this.HttpContext.Response.Headers)
+            {
+                <tr>
+                    <td>@header.Key</td>
+                    <td>@header.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
