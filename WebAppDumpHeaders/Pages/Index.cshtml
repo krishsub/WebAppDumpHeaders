@@ -42,4 +42,24 @@
             }
         </tbody>
     </table>
+    <h1 class="display-4">Environment</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Header</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prop in typeof(Environment).GetProperties(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.Static))
+            {
+                <tr>
+                    <td>@prop.Name</td>
+                    <td>@prop.GetValue(null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
